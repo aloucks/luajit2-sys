@@ -11,17 +11,24 @@ fn main() {
     let out_dir = env::var("OUT_DIR").unwrap();
     let src_dir = format!("{}/luajit/src", out_dir);
 
+    dbg!(&luajit_dir);
+    dbg!(&out_dir);
+    dbg!(&src_dir);
+
     if cfg!(target_env = "msvc") {
         let lib_path = format!("{}/lua51.lib", &src_dir);
+        dbg!(&lib_path);
         if !std::fs::metadata(&lib_path).is_ok() {
             let cl_exe: cc::Tool = cc::windows_registry::find_tool(&target, "cl.exe").unwrap();
-            let msvsbuild_bat = format!("{}/msvcbuild.bat", &src_dir);
+            let msvcbuild_bat = format!("{}/msvcbuild.bat", &src_dir);
+
+            dbg!(&msvcbuild_bat);
 
             let mut copy_options = CopyOptions::new();
             copy_options.overwrite = true;
             dir::copy(&luajit_dir, &out_dir, &copy_options).unwrap();
 
-            let mut buildcmd = Command::new(msvsbuild_bat);
+            let mut buildcmd = Command::new(msvcbuild_bat);
             for (name, value) in cl_exe.env() {
                 buildcmd.env(name, value);
             }
@@ -45,6 +52,7 @@ fn main() {
         println!("cargo:rustc-link-lib=static=lua51");
     } else {
         let lib_path = format!("{}/luajit.a", &src_dir);
+        dbg!(&lib_path);
         if !std::fs::metadata(&lib_path).is_ok() {
             let mut copy_options = CopyOptions::new();
             copy_options.overwrite = true;

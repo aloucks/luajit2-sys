@@ -17,3 +17,8 @@ steps:
     env:
       RUST_BACKTRACE: 1
       CARGO_INCREMENTAL: 0
+  - bash: |
+      pwd
+      find ./target
+    displayName: List files in ./target
+    condition: always()
