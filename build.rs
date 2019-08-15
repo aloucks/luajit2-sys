@@ -7,15 +7,15 @@ use std::process::{Command, Stdio};
 fn main() {
     let target = env::var("TARGET").unwrap();
 
-    let luajit_dir = format!("{}\\luajit", env!("CARGO_MANIFEST_DIR"));
+    let luajit_dir = format!("{}/luajit", env!("CARGO_MANIFEST_DIR"));
     let out_dir = env::var("OUT_DIR").unwrap();
-    let src_dir = format!("{}\\luajit\\src", out_dir);
+    let src_dir = format!("{}/luajit/src", out_dir);
 
     if cfg!(target_env = "msvc") {
-        let lib_path = format!("{}\\lua51.lib", &src_dir);
+        let lib_path = format!("{}/lua51.lib", &src_dir);
         if !std::fs::metadata(&lib_path).is_ok() {
             let cl_exe: cc::Tool = cc::windows_registry::find_tool(&target, "cl.exe").unwrap();
-            let msvsbuild_bat = format!("{}\\msvcbuild.bat", &src_dir);
+            let msvsbuild_bat = format!("{}/msvcbuild.bat", &src_dir);
 
             let mut copy_options = CopyOptions::new();
             copy_options.overwrite = true;
@@ -44,7 +44,7 @@ fn main() {
         println!("cargo:rustc-link-search=native={}", src_dir);
         println!("cargo:rustc-link-lib=static=lua51");
     } else {
-        let lib_path = format!("{}\\luajit.a", &src_dir);
+        let lib_path = format!("{}/luajit.a", &src_dir);
         if !std::fs::metadata(&lib_path).is_ok() {
             let mut copy_options = CopyOptions::new();
             copy_options.overwrite = true;
