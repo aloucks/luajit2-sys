@@ -27,7 +27,6 @@ fn main() {
             let mut copy_options = CopyOptions::new();
             copy_options.overwrite = true;
             dir::copy(&luajit_dir, &out_dir, &copy_options).unwrap();
-            fs::copy(format!("etc/Makefile"), format!("{}/Makefile", &src_dir)).unwrap();
 
             let mut buildcmd = Command::new(msvcbuild_bat);
             for (name, value) in cl_exe.env() {
@@ -58,6 +57,7 @@ fn main() {
             let mut copy_options = CopyOptions::new();
             copy_options.overwrite = true;
             dir::copy(&luajit_dir, &out_dir, &copy_options).unwrap();
+            fs::copy(format!("etc/Makefile"), format!("{}/Makefile", &src_dir)).unwrap();
 
             let mut buildcmd = Command::new("make");
             buildcmd.current_dir(&src_dir);
