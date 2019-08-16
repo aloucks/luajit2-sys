@@ -1,0 +1,9 @@
+[target.x86_64-apple-darwin]
+rustflags = [
+  "-C",
+  "link-arg=-pagezero_size 10000",
+
+]
+
+#  "-C",
+#  "link-arg=-image_base 100000000",
