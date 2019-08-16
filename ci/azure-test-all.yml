@@ -1,4 +1,6 @@
 steps:
+  - checkout: self
+    submodules: true
   - bash: |
       set -e -x
       cargo +stable fmt --all -- --check
