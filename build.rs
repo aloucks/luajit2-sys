@@ -63,6 +63,11 @@ fn main() {
             buildcmd.current_dir(&src_dir);
             buildcmd.stderr(Stdio::inherit());
 
+            if cfg!(target_pointer_width = "32") {
+                buildcmd.env("HOST_CC", "gcc -m32");
+                buildcmd.arg("-e");
+            }
+
             let mut child = buildcmd.spawn().expect("failed to run make");
 
             if !child
@@ -77,4 +82,8 @@ fn main() {
         println!("cargo:rustc-link-search=native={}", src_dir);
         println!("cargo:rustc-link-lib=static=luajit");
     }
+
+    //    if cfg!(target_os = "macos") && cfg!(target_pointer_width = "64") {
+    //        // RUSTFLAGS='-C link-args=-pagezero_size 10000 -image_base 100000000'
+    //    }
 }

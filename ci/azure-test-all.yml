@@ -1,6 +1,16 @@
 steps:
   - checkout: self
     submodules: true
+#  - script: |
+#      call "C:\Program Files (x86)\Microsoft Visual Studio\2017\VC\Auxiliary\Build\vcvarsall.bat" x86
+#    displayName: Call vcvarsalls.bat x86
+#    condition: eq(variables['TOOLCHAIN'], 'stable-i686-pc-windows-msvc')
+#  - bash: pacman -Syu
+#    condition: eq(variables['TOOLCHAIN'], 'stable-x86_64-pc-windows-gnu')
+#    displayName: Update msys
+#  - bash: sudo apt install gcc-multilib
+#    condition: eq(variables['TOOLCHAIN'], 'stable-i686-unknown-linux-gnu')
+#    displayName: Install gcc-multilib
   - bash: |
       set -e -x
       cargo +stable fmt --all -- --check
@@ -22,5 +32,5 @@ steps:
   - bash: |
       pwd
       find ./target
-    displayName: List files in ./target
+    displayName: List files in target
     condition: always()
