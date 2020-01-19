@@ -6,7 +6,7 @@
 
 ```toml
 [dependencies]
-luajit2-sys = "0.0.1"
+luajit2-sys = "0.0.2"
 ```
 
 ## Exported Cargo Environment Variables
