@@ -1,5 +1,6 @@
 [package]
 name = "luajit2-sys"
+description = "LuaJIT-2.1 FFI Bindings"
 version = "0.0.1"
 authors = ["Aaron Loucks <aloucks@cofront.net>"]
 edition = "2018"
