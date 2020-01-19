@@ -1,4 +1,4 @@
-# Rust LuaJIT 2 Bindings
+# Rust LuaJIT Bindings
 
 [![crates.io](https://img.shields.io/crates/v/luajit2-sys.svg)](https://crates.io/crates/luajit2-sys)
 [![docs.rs](https://docs.rs/luajit2-sys/badge.svg)](https://docs.rs/luajit2-sys)
