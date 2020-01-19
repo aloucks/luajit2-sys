@@ -4,6 +4,8 @@ version = "0.0.1"
 authors = ["Aaron Loucks <aloucks@cofront.net>"]
 edition = "2018"
 keywords = ["lua", "luajit", "script"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/aloucks/luajit2-sys"
 
 [dependencies]
 libc = "0.2"
