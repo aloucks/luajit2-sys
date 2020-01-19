@@ -31,6 +31,6 @@ steps:
       CARGO_INCREMENTAL: 0
   - bash: |
       pwd
-      find ./target
+      /usr/bin/find ./target
     displayName: List files in target
     condition: always()
