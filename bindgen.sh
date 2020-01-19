@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BINDGEN_VERSION=$(bindgen --version)
+BINDGEN_VERSION=$(bindgen --version | grep -v -e '^cargo')
 
 bindgen -o src/ffi.rs \
  --raw-line "/// Generated with: ${BINDGEN_VERSION}" \

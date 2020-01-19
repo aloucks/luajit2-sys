@@ -19,7 +19,8 @@ fn main() {
         let lib_path = format!("{}/lua51.lib", &src_dir);
         dbg!(&lib_path);
         if !std::fs::metadata(&lib_path).is_ok() {
-            let cl_exe: cc::Tool = cc::windows_registry::find_tool(&target, "cl.exe").unwrap();
+            let cl_exe: cc::Tool =
+                cc::windows_registry::find_tool(&target, "cl.exe").expect("cl.exe not found");
             let msvcbuild_bat = format!("{}/msvcbuild.bat", &src_dir);
 
             dbg!(&msvcbuild_bat);
