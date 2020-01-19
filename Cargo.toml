@@ -1,12 +1,14 @@
 [package]
 name = "luajit2-sys"
-description = "LuaJIT-2.1 FFI Bindings"
 version = "0.0.1"
+description = "LuaJIT-2.1 FFI Bindings"
 authors = ["Aaron Loucks <aloucks@cofront.net>"]
 edition = "2018"
 keywords = ["lua", "luajit", "script"]
 license = "MIT OR Apache-2.0"
+readme = "README.md"
 repository = "https://github.com/aloucks/luajit2-sys"
+documentation = "https://docs.rs/luajit2-sys"
 links = "luajit"
 
 [dependencies]
