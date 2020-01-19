@@ -2,7 +2,7 @@ use std::env;
 use std::ffi::{CStr, CString};
 use std::ptr;
 
-use luajit_sys as sys;
+use luajit2_sys as sys;
 
 unsafe fn run_script(script_name: String, script_src: String) {
     let lua = sys::luaL_newstate();

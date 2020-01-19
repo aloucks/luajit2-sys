@@ -1,5 +1,5 @@
 [package]
-name = "luajit-sys"
+name = "luajit2-sys"
 version = "0.0.1"
 authors = ["Aaron Loucks <aloucks@cofront.net>"]
 edition = "2018"

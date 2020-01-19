@@ -1,4 +1,4 @@
-use luajit_sys as sys;
+use luajit2_sys as sys;
 
 #[test]
 fn run_script() {
