@@ -7,6 +7,7 @@ edition = "2018"
 keywords = ["lua", "luajit", "script"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/aloucks/luajit2-sys"
+links = "luajit"
 
 [dependencies]
 libc = "0.2"
